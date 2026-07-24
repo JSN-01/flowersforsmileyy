@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowers for Rochel</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
 
         :root {
             --bg-color: #0d1117;
@@ -23,10 +23,12 @@
             background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             padding: 20px;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Container for the bouquet */
@@ -34,7 +36,7 @@
             position: relative;
             width: 100%;
             max-width: 550px;
-            height: 600px;
+            height: 520px;
             background: var(--container-bg);
             backdrop-filter: blur(12px);
             border-radius: 30px;
@@ -50,6 +52,31 @@
             width: 100%;
             height: 100%;
             overflow: visible;
+        }
+
+        /* Encouragement Message Below Bouquet */
+        .message-banner {
+            margin-top: 25px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .message-primary {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #38bdf8, #a855f7, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .message-secondary {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-top: 4px;
+            font-weight: 400;
+            opacity: 0.9;
         }
 
         /* Gentle floating animation */
@@ -73,7 +100,7 @@
             50% { opacity: 0.8; transform: scale(1.1); }
         }
 
-        /* Custom handwriting styling for the note */
+        /* Custom handwriting styling for the wrap note */
         .rochel-note {
             font-family: 'Great Vibes', cursive;
             font-size: 20px;
@@ -81,12 +108,17 @@
             text-anchor: middle;
             font-weight: 600;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
     <div class="bouquet-stage">
-        <svg id="bouquet-canvas" viewBox="0 0 400 550" xmlns="http://www.w3.org/2000/svg">
+        <svg id="bouquet-canvas" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <!-- Blue Tulip Gradients -->
                 <linearGradient id="tulipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -128,25 +160,25 @@
                 
                 <!-- Stems & Foliage -->
                 <g id="stems-group" stroke-linecap="round" fill="none">
-                    <path d="M 180 400 Q 140 250 110 160" stroke="#15803d" stroke-width="5" />
-                    <path d="M 195 400 Q 180 240 160 100" stroke="#16a34a" stroke-width="4.5" />
-                    <path d="M 205 400 Q 210 250 220 110" stroke="#15803d" stroke-width="5" />
-                    <path d="M 220 400 Q 260 260 290 170" stroke="#16a34a" stroke-width="4.5" />
+                    <path d="M 180 380 Q 140 230 110 140" stroke="#15803d" stroke-width="5" />
+                    <path d="M 195 380 Q 180 220 160 80" stroke="#16a34a" stroke-width="4.5" />
+                    <path d="M 205 380 Q 210 230 220 90" stroke="#15803d" stroke-width="5" />
+                    <path d="M 220 380 Q 260 240 290 150" stroke="#16a34a" stroke-width="4.5" />
                     
-                    <path d="M 160 330 Q 80 280 60 200 Q 120 250 170 310 Z" fill="#166534" opacity="0.9" />
-                    <path d="M 240 330 Q 320 280 340 200 Q 280 250 230 310 Z" fill="#15803d" opacity="0.9" />
+                    <path d="M 160 310 Q 80 260 60 180 Q 120 230 170 290 Z" fill="#166534" opacity="0.9" />
+                    <path d="M 240 310 Q 320 260 340 180 Q 280 230 230 290 Z" fill="#15803d" opacity="0.9" />
                 </g>
 
                 <!-- Lavender Layer -->
                 <g id="lavender-accents" filter="url(#softGlow)">
-                    <g transform="translate(90, 150) rotate(-22)">
+                    <g transform="translate(90, 130) rotate(-22)">
                         <path d="M 0 70 Q 5 35 0 0" stroke="#166534" stroke-width="3" fill="none" />
                         <circle cx="-4" cy="12" r="5" fill="#a855f7" /> <circle cx="4" cy="14" r="5" fill="#9333ea" />
                         <circle cx="-5" cy="26" r="6" fill="#a855f7" /> <circle cx="5" cy="28" r="6" fill="#7e22ce" />
                         <circle cx="-6" cy="40" r="6" fill="#c084fc" /> <circle cx="6" cy="42" r="6" fill="#a855f7" />
                         <circle cx="-5" cy="55" r="5" fill="#9333ea" /> <circle cx="5" cy="55" r="5" fill="#7e22ce" />
                     </g>
-                    <g transform="translate(310, 160) rotate(22)">
+                    <g transform="translate(310, 140) rotate(22)">
                         <path d="M 0 70 Q -5 35 0 0" stroke="#15803d" stroke-width="3" fill="none" />
                         <circle cx="-4" cy="12" r="5" fill="#a855f7" /> <circle cx="4" cy="14" r="5" fill="#9333ea" />
                         <circle cx="-5" cy="26" r="6" fill="#c084fc" /> <circle cx="5" cy="28" r="6" fill="#7e22ce" />
@@ -157,18 +189,18 @@
                 <!-- Big Blue Tulips Layer -->
                 <g id="tulip-focal-layer">
                     <!-- Central Big Tulip -->
-                    <g transform="translate(200, 160) rotate(5)">
+                    <g transform="translate(200, 140) rotate(5)">
                         <path d="M 0 0 C -35 -25 -50 -80 0 -110 C 50 -80 35 -25 0 0 Z" fill="url(#tulipGrad)" stroke="#1e40af" stroke-width="1"/>
                         <path d="M 0 0 C -40 -35 -20 -90 0 -110 C 15 -70 0 -30 0 0 Z" fill="#60a5fa" opacity="0.4" />
                         <path d="M 0 0 C 40 -35 20 -90 0 -110 C -15 -70 0 -30 0 0 Z" fill="#1d4ed8" opacity="0.4" />
                     </g>
                     <!-- Left Big Tulip -->
-                    <g transform="translate(135, 180) rotate(-15)">
+                    <g transform="translate(135, 160) rotate(-15)">
                         <path d="M 0 0 C -30 -20 -40 -70 0 -95 C 40 -70 30 -20 0 0 Z" fill="url(#tulipGrad)" />
                         <path d="M 0 0 C -35 -30 -15 -80 0 -95 C 10 -60 0 -25 0 0 Z" fill="#3b82f6" opacity="0.4" />
                     </g>
                     <!-- Right Big Tulip -->
-                    <g transform="translate(265, 190) rotate(18)">
+                    <g transform="translate(265, 170) rotate(18)">
                         <path d="M 0 0 C -30 -20 -40 -70 0 -95 C 40 -70 30 -20 0 0 Z" fill="url(#tulipGrad)" />
                         <path d="M 0 0 C 35 -30 15 -80 0 -95 C -10 -60 0 -25 0 0 Z" fill="#1d4ed8" opacity="0.4" />
                     </g>
@@ -176,7 +208,7 @@
 
                 <!-- White Lilies Layer -->
                 <g id="lily-layer">
-                    <g transform="translate(140, 220) scale(0.8) rotate(-5)">
+                    <g transform="translate(140, 200) scale(0.8) rotate(-5)">
                         <path d="M 0 0 C -30 -30 -40 -80 0 -110 C 40 -80 30 -30 0 0 Z" fill="url(#lilyGrad)" />
                         <path d="M 0 0 C -70 -10 -90 -50 -70 -80 C -30 -70 -10 -30 0 0 Z" fill="url(#lilyGrad)" />
                         <path d="M 0 0 C 70 -10 90 -50 70 -80 C 30 -70 10 -30 0 0 Z" fill="url(#lilyGrad)" />
@@ -184,7 +216,7 @@
                         <path d="M 0 -10 Q 0 -45 0 -60" stroke="#ca8a04" stroke-width="1.5" fill="none" />
                         <path d="M 0 -10 Q 10 -40 15 -55" stroke="#ca8a04" stroke-width="1.5" fill="none" />
                     </g>
-                    <g transform="translate(260, 230) scale(0.85) rotate(5)">
+                    <g transform="translate(260, 210) scale(0.85) rotate(5)">
                         <path d="M 0 0 C -30 -30 -40 -80 0 -110 C 40 -80 30 -30 0 0 Z" fill="url(#lilyGrad)" />
                         <path d="M 0 0 C -70 -10 -90 -50 -70 -80 C -30 -70 -10 -30 0 0 Z" fill="url(#lilyGrad)" />
                         <path d="M 0 0 C 70 -10 90 -50 70 -80 C 30 -70 10 -30 0 0 Z" fill="url(#lilyGrad)" />
@@ -194,11 +226,11 @@
 
                 <!-- Bouquet Wrapping -->
                 <g id="wrapper-group">
-                    <path d="M 110 290 L 200 480 L 290 290 Q 200 320 110 290 Z" fill="url(#wrapGrad)" opacity="0.95" />
-                    <path d="M 110 290 Q 160 340 200 480 Q 160 360 110 290 Z" fill="#f472b6" opacity="0.4" />
+                    <path d="M 110 270 L 200 460 L 290 270 Q 200 300 110 270 Z" fill="url(#wrapGrad)" opacity="0.95" />
+                    <path d="M 110 270 Q 160 320 200 460 Q 160 340 110 270 Z" fill="#f472b6" opacity="0.4" />
                     
                     <!-- Bow -->
-                    <g id="bow" transform="translate(200, 410)" filter="url(#softGlow)">
+                    <g id="bow" transform="translate(200, 390)" filter="url(#softGlow)">
                         <ellipse cx="-20" cy="0" rx="20" ry="10" fill="#38bdf8" />
                         <ellipse cx="20" cy="0" rx="20" ry="10" fill="#38bdf8" />
                         <circle cx="0" cy="0" r="7" fill="#0ea5e9" />
@@ -207,17 +239,19 @@
                     </g>
 
                     <!-- Gift Tag with "Flowers for Rochel" -->
-                    <g id="gift-tag" transform="translate(200, 345) rotate(-3)">
-                        <!-- Card Shadow and Body -->
+                    <g id="gift-tag" transform="translate(200, 325) rotate(-3)">
                         <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#ffffff" filter="url(#softGlow)" />
-                        <!-- Decorative Top Border -->
                         <path d="M -70 -25 L 70 -25" stroke="#f472b6" stroke-width="6" stroke-linecap="round" />
-                        <!-- Card Message -->
                         <text x="0" y="8" class="rochel-note">Flowers for Rochel</text>
                     </g>
                 </g>
             </g>
         </svg>
+    </div>
+
+    <!-- Message Below the Bouquet -->
+    <div class="message-banner">
+        <div class="message-secondary"> Hey Cutiee, Flowers for you! Work well! hahahaha</div>
     </div>
 
 </body>
